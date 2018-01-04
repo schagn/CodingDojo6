@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{58681059-38E6-4D70-BAD7-5F05EEFC4CDA}</ProjectGuid>
+    <ProjectGuid>{0F6D4885-32D2-428B-9406-52288AE708D8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CodingDojo6</RootNamespace>
-    <AssemblyName>CodingDojo6</AssemblyName>
+    <RootNamespace>MessageBar</RootNamespace>
+    <AssemblyName>MessageBar</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -69,7 +69,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModel\ItemVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -113,16 +112,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\lego1.jpg" />
-    <Resource Include="Images\lego2.jpg" />
-    <Resource Include="Images\lego3.jpg" />
-    <Resource Include="Images\lego4.jpg" />
-    <Resource Include="Images\playmobil1.jpg" />
-    <Resource Include="Images\playmobil2.jpg" />
-    <Resource Include="Images\playmobil3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
+    <Resource Include="Images\State_Error.png" />
+    <Resource Include="Images\State_Info.png" />
+    <Resource Include="Images\State_Ok.png" />
+    <Resource Include="Images\State_Warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
