@@ -12,8 +12,10 @@
   See http://www.galasoft.ch/mvvm
 */
 
+using CodingDojo6.Views;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Practices.ServiceLocation;
 
 namespace CodingDojo6.ViewModel
@@ -42,7 +44,17 @@ namespace CodingDojo6.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
+            //Messaging System instanzieren
+            SimpleIoc.Default.Register<Messenger>();
+
+            SimpleIoc.Default.Register<MyToysView>(true);
+            SimpleIoc.Default.Register<OverviewView>(true);
+
+            //Message Bar hier und unten !!!! 
+
             SimpleIoc.Default.Register<MainViewModel>();
+
+            
         }
 
         public MainViewModel Main
@@ -52,7 +64,23 @@ namespace CodingDojo6.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+
+        public OverviewView Overview
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<OverviewView>();
+            }
+        }
+
+        public MyToysView MyToys
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<MyToysView>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

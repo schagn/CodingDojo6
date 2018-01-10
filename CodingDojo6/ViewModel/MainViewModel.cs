@@ -1,5 +1,6 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Ioc;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
@@ -12,17 +13,13 @@ namespace CodingDojo6.ViewModel
 
         public ObservableCollection<ItemVM> ShoppingCart { get; set; }
 
-        //private ItemVM currentItem;
+        private NavigationService navService = SimpleIoc.Default.GetInstance<NavigationService>();
 
         private ItemVM selectedItem;
 
         private RelayCommand<ItemVM> buyBtnClick;
 
-        //public ItemVM CurrentItem
-        //{
-        //    get { return currentItem; }
-        //    set { currentItem = value; RaisePropertyChanged(); }
-        //}
+        private ViewModelBase currentDetailView;
 
         public ItemVM SelectedItem
         {
@@ -35,6 +32,16 @@ namespace CodingDojo6.ViewModel
             get { return buyBtnClick; }
             set { buyBtnClick = value; RaisePropertyChanged(); }
         }
+
+        public ViewModelBase CurrentDetailView
+        {
+            get => currentDetailView;
+            set { currentDetailView = value; RaisePropertyChanged(); }
+        }
+
+        public RelayCommand SwitchToMyToysView { get; set; }
+
+        public RelayCommand SwitchToOverviewView { get; set; }
 
         public MainViewModel()
         {
@@ -49,6 +56,18 @@ namespace CodingDojo6.ViewModel
                 }, (p) => { return true; });
 
             GenerateDemoData();
+
+
+
+            SwitchToMyToysView = new RelayCommand(
+                () => { CurrentDetailView = navService.NavigateTo("MyToys"); });
+
+            SwitchToOverviewView = new RelayCommand(
+                () => { CurrentDetailView = navService.NavigateTo("Overview"); });
+
+            //Default View
+
+            CurrentDetailView = navService.NavigateTo("Overview");
         }
 
         private void GenerateDemoData()
