@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MessageBar
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MessageBarView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MessageBarView : UserControl
     {
-        public MainWindow()
+        public MessageBarView()
         {
             InitializeComponent();
         }

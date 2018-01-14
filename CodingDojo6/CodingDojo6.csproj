@@ -138,6 +138,11 @@
     <Resource Include="Images\playmobil2.jpg" />
     <Resource Include="Images\playmobil3.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MessageBar\MessageBar.csproj">
+      <Project>{0F6D4885-32D2-428B-9406-52288AE708D8}</Project>
+      <Name>MessageBar</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

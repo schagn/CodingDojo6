@@ -16,6 +16,8 @@ using CodingDojo6.Views;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
+using MessageBar;
+using MessageBar.ViewModel;
 using Microsoft.Practices.ServiceLocation;
 
 namespace CodingDojo6.ViewModel
@@ -46,13 +48,18 @@ namespace CodingDojo6.ViewModel
 
             //Messaging System instanzieren
             SimpleIoc.Default.Register<Messenger>();
-
-            SimpleIoc.Default.Register<MyToysView>(true);
-            SimpleIoc.Default.Register<OverviewView>(true);
-
-            //Message Bar hier und unten !!!! 
+            
 
             SimpleIoc.Default.Register<MainViewModel>();
+           
+            SimpleIoc.Default.Register<OverviewVM>(true);
+            SimpleIoc.Default.Register<ToysVM>(true);
+
+            SimpleIoc.Default.Register<NavigationService>();
+
+            SimpleIoc.Default.Register<MessageBarVm>();
+
+            
 
             
         }
@@ -65,19 +72,27 @@ namespace CodingDojo6.ViewModel
             }
         }
 
-        public OverviewView Overview
+        public OverviewVM Overview
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<OverviewView>();
+                return ServiceLocator.Current.GetInstance<OverviewVM>();
             }
         }
 
-        public MyToysView MyToys
+        public ToysVM MyToys
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MyToysView>();
+                return ServiceLocator.Current.GetInstance<ToysVM>();
+            }
+        }
+
+        public MessageBarVm MessageBar
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<MessageBarVm>();
             }
         }
 

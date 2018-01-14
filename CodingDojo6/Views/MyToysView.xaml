@@ -5,13 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CodingDojo6.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" DataContext="{Binding Main, Mode=OneWay, Source={StaticResource Locator}}">
-    <Grid>
+             d:DesignHeight="300" d:DesignWidth="300" DataContext="{Binding MyToys, Mode=OneWay, Source={StaticResource Locator}}">
+    
+    <Grid Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <ListBox ItemsSource="{Binding ShoppingCart}">
+        <ListBox ItemsSource="{Binding Toys}" Grid.Row="0" Grid.ColumnSpan="2" Background="Transparent">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal"/>
+                    <StackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
@@ -20,6 +27,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
 
     </Grid>
 </UserControl>
